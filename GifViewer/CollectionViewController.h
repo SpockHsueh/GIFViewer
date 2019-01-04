@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  CollectionViewController.h
 //  GifViewer
 //
 //  Created by Spoke on 2019/1/4.
@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+NS_ASSUME_NONNULL_BEGIN
 
+@interface CollectionViewController : UICollectionViewController
 
 @end
 
+NS_ASSUME_NONNULL_END
