@@ -10,7 +10,7 @@
 #import "CollectionViewCell.h"
 
 @interface CollectionViewController ()
-
+@property (nonatomic, strong) NSArray *imageURLs;
 @end
 
 @implementation CollectionViewController
@@ -27,8 +27,20 @@ static NSString * const reuseIdentifier = @"GifViewerCell";
     NSURLSession *session = [NSURLSession sharedSession];
     NSURL *url = [NSURL URLWithString:@"https://api.giphy.com/v1/gifs/trending?api_key=dc6zaTOxFJmzC&rating=pg"];
     NSURLSessionDownloadTask *task = [session downloadTaskWithURL:(url) completionHandler:^(NSURL * _Nullable location, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        
+        // 會轉成 JSON 格式
         NSString *responseText = [[NSString alloc] initWithContentsOfURL:location encoding:NSUTF8StringEncoding error:nil];
-        NSLog(@"Response: %@", responseText);
+        
+        // JSON response into an NSData
+        NSData *data = [[NSData alloc] initWithContentsOfFile:location];
+        NSDictionary *dictionart = [NSJSONSerialization JSONObjectWithData:data options:nil error:nil];
+//        NSLog(@"response dictionary: %@", dictionart);
+        
+        // data array > images > downsized_still > url
+        self.imageURLs = [dictionart valueForKeyPath:@"data.images.downsized_still.url"];
+        
+        NSLog(@"%@", self.imageURLs);
+
     }];
     [task resume];
 }
