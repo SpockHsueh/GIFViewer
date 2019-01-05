@@ -13,6 +13,7 @@
 		8E14594D21DE6D1D00DB1F72 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E14594B21DE6D1D00DB1F72 /* LaunchScreen.storyboard */; };
 		8E14595021DE6D1D00DB1F72 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E14594F21DE6D1D00DB1F72 /* main.m */; };
 		8E14595821DE70A700DB1F72 /* CollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E14595721DE70A700DB1F72 /* CollectionViewController.m */; };
+		8EA007F321DFB9BF007FDB77 /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EA007F221DFB9BF007FDB77 /* CollectionViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		8E14594F21DE6D1D00DB1F72 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8E14595621DE70A700DB1F72 /* CollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectionViewController.h; sourceTree = "<group>"; };
 		8E14595721DE70A700DB1F72 /* CollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectionViewController.m; sourceTree = "<group>"; };
+		8EA007F121DFB9BF007FDB77 /* CollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectionViewCell.h; sourceTree = "<group>"; };
+		8EA007F221DFB9BF007FDB77 /* CollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectionViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +65,8 @@
 				8E14594121DE6D1B00DB1F72 /* AppDelegate.m */,
 				8E14595621DE70A700DB1F72 /* CollectionViewController.h */,
 				8E14595721DE70A700DB1F72 /* CollectionViewController.m */,
+				8EA007F121DFB9BF007FDB77 /* CollectionViewCell.h */,
+				8EA007F221DFB9BF007FDB77 /* CollectionViewCell.m */,
 				8E14594621DE6D1B00DB1F72 /* Main.storyboard */,
 				8E14594921DE6D1D00DB1F72 /* Assets.xcassets */,
 				8E14594B21DE6D1D00DB1F72 /* LaunchScreen.storyboard */,
@@ -143,6 +148,7 @@
 			files = (
 				8E14595021DE6D1D00DB1F72 /* main.m in Sources */,
 				8E14594221DE6D1B00DB1F72 /* AppDelegate.m in Sources */,
+				8EA007F321DFB9BF007FDB77 /* CollectionViewCell.m in Sources */,
 				8E14595821DE70A700DB1F72 /* CollectionViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
