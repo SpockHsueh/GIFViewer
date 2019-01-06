@@ -7,18 +7,18 @@
 //
 
 #import "CollectionViewCell.h"
+#import "Giphy.h"
 
 @implementation CollectionViewCell
 
-// 創建一個自定義的 setter for urlString
-- (void) setUrlString:(NSString *)urlString {
-    _urlString = urlString;
-    [self downloadImageWithURL:urlString];
+// 創建一個自定義的 setter for giphy
+- (void) setGiphy:(Giphy *)giphy {
+    _giphy = giphy;
+    [self downloadImageWithURL:giphy.stillImageURL];
 }
 
-- (void) downloadImageWithURL: (NSString *)urlString {
+- (void) downloadImageWithURL: (NSURL *)url {
     NSURLSession *session = [NSURLSession sharedSession];
-    NSURL *url = [NSURL URLWithString:urlString];
     NSURLRequest *request = [NSURLRequest requestWithURL:url
                                         cachePolicy:NSURLRequestReturnCacheDataElseLoad timeoutInterval:60];
     
@@ -33,7 +33,6 @@
     }];
     [task resume];
 }
-
 
 
 @end
