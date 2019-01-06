@@ -34,13 +34,16 @@ static NSString * const reuseIdentifier = @"GifViewerCell";
         // JSON response into an NSData
         NSData *data = [[NSData alloc] initWithContentsOfFile:location];
         NSDictionary *dictionart = [NSJSONSerialization JSONObjectWithData:data options:nil error:nil];
-//        NSLog(@"response dictionary: %@", dictionart);
         
         // data array > images > downsized_still > url
         self.imageURLs = [dictionart valueForKeyPath:@"data.images.downsized_still.url"];
         
         NSLog(@"%@", self.imageURLs);
-
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.collectionView reloadData];
+        });
+        
     }];
     [task resume];
 }
@@ -48,19 +51,20 @@ static NSString * const reuseIdentifier = @"GifViewerCell";
 #pragma mark <UICollectionViewDataSource>
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return 2;
+    return 1;
 }
 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 49;
+    return [self.imageURLs count];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     CollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     
     // Configure the cell
-    cell.imageView.image = [UIImage imageNamed:@"ruler-1"];
+    NSString *urlString = self.imageURLs[indexPath.row];
+    cell.urlString = urlString;
     return cell;
 }
 
