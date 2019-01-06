@@ -45,7 +45,7 @@
                                 </constraints>
                                 <connections>
                                     <outlet property="imageView" destination="2AJ-Xo-2fr" id="WME-AO-fm5"/>
-                                    <segue destination="14a-AE-L7t" kind="showDetail" identifier="showDetail" id="qtq-qe-SFj"/>
+                                    <segue destination="14a-AE-L7t" kind="presentation" identifier="showDetail" modalPresentationStyle="overCurrentContext" id="qtq-qe-SFj"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
