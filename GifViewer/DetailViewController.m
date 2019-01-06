@@ -26,12 +26,14 @@
 }
 
 - (void)setupGestures {
+    // 單點手勢
     UITapGestureRecognizer *dismiss = [[UITapGestureRecognizer alloc]
                                        initWithTarget:self
                                        action:@selector(dismiss)];
     dismiss.numberOfTapsRequired = 1;
     [self.view addGestureRecognizer:dismiss];
     
+    // 右滑手勢
     UISwipeGestureRecognizer *swipe = [[UISwipeGestureRecognizer alloc]
                                        initWithTarget:self
                                        action:@selector(swipeToDismiss)];
@@ -41,6 +43,7 @@
 
 - (void)dismiss {
     [UIView animateWithDuration:0.75 animations:^{
+        // 縮小的動畫
         self.view.transform = CGAffineTransformMakeScale(0.01, 0.01);
         self.view.alpha = 0.0;
     } completion:^(BOOL finished) {
@@ -50,6 +53,7 @@
 
 - (void) swipeToDismiss {
     [UIView animateWithDuration:0.5 animations:^{
+        // 向指定方向前進的動畫
         self.view.transform = CGAffineTransformMakeTranslation(500, 0);
     } completion:^(BOOL finished) {
         [self dismissViewControllerAnimated:true completion:nil];
